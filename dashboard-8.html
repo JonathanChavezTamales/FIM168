@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Xenon Boostrap Admin Panel" />
+	<meta name="author" content="" />
+
+	<title>FIM-168</title>
+
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/xenon-core.css">
+	<link rel="stylesheet" href="assets/css/xenon-forms.css">
+	<link rel="stylesheet" href="assets/css/xenon-components.css">
+	<link rel="stylesheet" href="assets/css/xenon-skins.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+
+	<script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script src="assets/js/flicker1.js"></script>
+    <script src="assets/js/flicker2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="shortcut icon" href="logo.png" />
+	<style type="text/css">
+.blink_text {
+
+animation:3s blinker linear infinite;
+-webkit-animation:1s blinker linear infinite;
+-moz-animation:1s blinker linear infinite;
+
+ color: white;
+}
+
+@-moz-keyframes blinker {  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@-webkit-keyframes blinker {  
+ 0% { opacity: 0.5; }
+ 50% { opacity: 1.0; }
+ 100% { opacity: 1.0; }
+ }
+
+@keyframes blinker {  
+ 0% { opacity: 1.0; }
+ 50% { opacity: 0.0; }
+ 100% { opacity: 1.0; }
+ }
+ </style>
+
+
+</head>
+<body class="page-body">
+
+
+	
+	<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+			
+		<!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
+		<!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
+		<!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
+		<div class="sidebar-menu toggle-others fixed">
+		
+			<div class="sidebar-menu-inner">
+				
+				<header class="logo-env">
+		
+					<!-- logo -->
+					<div class="logo">
+						<a href="index.html" class="logo-expanded">
+							<img src="assets/images/sat.png" width="80" alt="" id="logo" />
+						</a>
+		
+						<a href="index.html" class="logo-collapsed">
+                            <img src="assets/images/sat.png" width="40" alt="" id="logo2" />
+						</a>
+					</div>
+		
+					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+					<div class="mobile-menu-toggle visible-xs">
+		
+						<a href="#" data-toggle="mobile-menu">
+							<i class="fa-bars"></i>
+						</a>
+					</div>
+		
+					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
+					
+		
+					
+				</header>
+				
+				
+						
+				<ul id="main-menu" class="main-menu">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<li>
+						<a href="index.html">
+							<i class="linecons-cog"></i>
+							<span class="title">Picosatélite en directo</span>
+							<span class="label label-pink pull-right hidden-collapsed"><span class="blink_text">LIVE</span></span>
+						</a>
+						<ul>
+							<li>
+								<a href="dashboard-1.php">
+									<span >Datos en tiempo real</span>
+								</a>
+
+							</li>
+
+
+							<li>
+								<a href="dashboard-2.php">
+									<span class="title">Gráficas en tiempo real</span>
+									<span class="label label-purple pull-right hidden-collapsed">¡Nuevo!</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="dashboard-3.php">
+									<span class="title">Ubicación en tiempo real</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="linecons-database"></i>
+							<span class="title">Bases de datos</span>
+						</a>
+						<ul>
+							<li class="active">
+								<a href="dashboard-4.html">
+									<span class="title">Consulta de registros</span>
+								</a>
+							</li>
+							<li>
+								<a href="dashboard-5.html">
+									<span class="title">Registros históricos</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="active opened">
+						<a href="#">
+							<i class="linecons-globe"></i>
+							<span class="title">Acerca de FIM168</span>
+						</a>
+						<ul>
+							
+							<li>
+								<a href="dashboard-6.html">
+									<span class="title">Modelo 3D FIM168</span>
+									<span class="label label-purple pull-right hidden-collapsed">¡Nuevo!</span>
+								</a>
+							</li>
+
+
+							<li>
+									<a href="http://www.fim168.hol.es" target="_blank">Documentación</span>
+								</a>
+							</li>
+							<li>
+								
+								<a href="https://github.com/JonathanChavezTamales/FIM168" target="_blank">Github</span>
+								</a>
+								
+							</li>
+							<li class="active">
+								<a href="dashboard-8.html">Simulaciones</span>
+								</a>
+							</li>
+							
+							
+
+							<li>
+									<a href="http://cbtis168.edu.mx/" target="_blank">Pagina oficial del CBTIS 168</span>
+								</a>
+							</li>
+
+						</ul>
+					</li>
+					
+				</ul>
+				
+			</div>
+		
+		</div>
+	
+		<div class="main-content">
+					
+			<nav class="navbar user-info-navbar"  role="navigation"><!-- User Info, Notifications and Menu Bar -->
+			
+				<!-- Left links for user info navbar -->
+				<ul class="user-info-menu left-links list-inline list-unstyled">
+			
+					<li class="hidden-sm hidden-xs">
+						<a href="#" data-toggle="sidebar">
+							<i class="fa-bars"></i>
+						</a>
+					</li>
+
+							<li>
+								<a href="../index.html">
+									<span class="title">INICIO</span>
+								</a>
+							</li>
+			
+					
+				
+				
+					
+				</ul>
+			
+			
+				<!-- Right links for user info navbar -->
+				
+			</nav>
+
+			<h1>Simuladores de aterrizaje</h2><br>
+
+
+
+			<h2><a href="http://www.predict.habhub.org/">CUSF Landing Predictor 2.5</a></h3>
+			<h4>Cambridge University Spaceflight Landing Predictor (<a href="http://github.com/jonsowman/cusf-standalone-predictor" target="_blank">github</a>)</h3>
+		    <p>A tool to predict the flight path and landing location of latex sounding balloons.</p>
+		    <p>Written by <a href="http://github.com/jonsowman" target="_blank">Jon Sowman</a>, <a href="http://github.com/adamgreig" target="_blank">Adam Greig</a> and <a href="http://github.com/danielrichman">Daniel Richman</a> for <a href="http://www.cuspaceflight.co.uk" target="_blank">CUSF</a>.
+		    Credit also to <a href="http://github.com/rjw57" target="_blank">Rich Wareham</a> for work on the predictor. Some parts of code taken from old landing prediction software, credit to Rob Anderson, Fergus Noble and Ed Moore.</p>
+		    <p>This predictor uses data from the NOAA GFS models.</p>
+		    <p>No guarantee is given for the accuracy, precision or reliability of the data produced by this software, and you use it entirely at your own risk. For more information, see #highaltitude on irc.freenode.net.</p>
+		    <p>
+		        Copyright 2013 Cambridge University Space Flight
+		    </p>     
+		    <a href="http://www.predict.habhub.org/"><img height="320px" width="480px" src="sim2.png"></a>
+
+
+			<h2><a href="http://astra-planner.soton.ac.uk/">ASTRA High Altitude Balloon Flight Planner</a></h3>
+			<p>This service simulates the flight of a latex gas balloon in Earth's atmosphere.<br /><br />
+					The underlying mathematical model (described in detail in the paper linked below) is approximated numerically using the Livermore Solver for Ordinary Differential Equations (LSODE).<br /><br />
+					The atmospheric conditions are based on the forecast obtained from the US National Oceanic and Atmospheric Administration.<br /><br />
+					There are a number of sources of uncertainty, which affect the results of the simulation - a Monte-Carlo procedure is used to provide an indication of the associated error margins.<br /><br />
+					The parameters that are currently implemented to vary in a Monte Carlo simulation are the following:<br />
+					&#149; Coefficient of drag of the balloon;<br />
+					&#149; Fraction of the balloon that remains attached to the payload train on descent;<br />
+					&#149; Coefficient of drag of the parachute;<br />
+					&#149; Balloon burst diameter (see the academic paper for details);<br />
+					&#149; Wind perturbations (only if an atmospheric sounding is being used as source of weather data).
+					<br /><br />
+					For further information, see the academic paper.
+					<br /><br />
+					A detailed presentation of the model, as well as of its computational implementation, can be found in the proceedings of the American Institute of Aeronautics and Astronautics 2013 Balloon Systems Conference (<a href="http://www.southampton.ac.uk/~as7/publ/daytona2013.pdf" target="_blank">Sóbester et al., 2013</a>).
+			</p>
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/TweenMax.min.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/xenon-api.js"></script>
+	<script src="assets/js/xenon-toggles.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="assets/js/xenon-widgets.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+	<script src="assets/js/toastr/toastr.min.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="assets/js/xenon-custom.js"></script>
+
+</body>
+</html>
