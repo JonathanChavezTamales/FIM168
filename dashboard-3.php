@@ -138,12 +138,12 @@ animation:3s blinker linear infinite;
 						</a>
 						<ul>
 							<li>
-								<a href="dashboard-4.html">
+								<a href="dashboard-4.php">
 									<span class="title">Consulta de registros</span>
 								</a>
 							</li>
 							<li>
-								<a href="dashboard-5.html">
+								<a href="dashboard-5.php">
 									<span class="title">Registros históricos</span>
 								</a>
 							</li>
@@ -232,17 +232,21 @@ animation:3s blinker linear infinite;
             $con = mysqli_connect("localhost", "root", "", "CanSATService") or die("Error en la conexión.");
             $query = "select * from datos order by id desc limit 1";
             $query2 = "select * from datos";
+            $query3 = "select * from datos order by id asc limit 1";
+            $query4 = "select * from datos order by Presion asc limit 1";
             $resultado2 = mysqli_query($con,$query);
             $resultado = mysqli_query($con,$query2);
+            $resultado3 = mysqli_query($con,$query3);
+            $resultado4 = mysqli_query($con,$query4);
 
           ?>
           <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAIcu3JWQ4sRNDeHwczUosnEuPTQcILhs"></script>
 
           <script type="text/javascript">
-            var bcn = new google.maps.LatLng(21.8955289,-102.3251335);
+            var bcn = new google.maps.LatLng(21.934635,-102.240048);
             var mapOptions = {
                 center: bcn,
-                zoom: 13,
+                zoom: 11,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
               };
             map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
@@ -258,7 +262,7 @@ animation:3s blinker linear infinite;
               var marker<?php echo $i2;?> = new google.maps.Marker({
                 position: new google.maps.LatLng(<?php echo $data['Latitud']; ?>, <?php echo $data['Longitud']; ?>),
                 map: map,
-                icon: 'img/icono.png',
+                icon: 'img/icono.jpg',
               });
 
  
@@ -298,6 +302,53 @@ animation:3s blinker linear infinite;
               }
             ?>
 
+            <?php
+              $i3=1;
+              while ($data3 = mysqli_fetch_assoc($resultado3)) {
+            ?>
+
+
+            <script type="text/javascript">
+              var marker<?php echo $i3;?> = new google.maps.Marker({
+                position: new google.maps.LatLng(<?php echo $data3['Latitud']; ?>, <?php echo $data3['Longitud']; ?>),
+                map: map,
+                icon: 'img/rocket-icon.png', 
+              });
+
+ 
+              google.maps.event.addListener(marker<?php echo $i3;?>, 'click', function() {
+                infowindow<?php echo $i3;?>.open(map,marker<?php echo $i3;?>);
+              });
+            </script>
+
+            <?php
+                $i3++;
+              }
+            ?>
+
+            <?php
+              $i4=1;
+              while ($data4 = mysqli_fetch_assoc($resultado4)) {
+            ?>
+
+
+            <script type="text/javascript">
+              var marker<?php echo $i4;?> = new google.maps.Marker({
+                position: new google.maps.LatLng(<?php echo $data4['Latitud']; ?>, <?php echo $data4['Longitud']; ?>),
+                map: map,
+                icon: 'img/explosion.png', 
+              });
+
+ 
+              google.maps.event.addListener(marker<?php echo $i4;?>, 'click', function() {
+                infowindow<?php echo $i4;?>.open(map,marker<?php echo $i4;?>);
+              });
+            </script>
+
+            <?php
+                $i4++;
+              }
+            ?>
 
 
         </div>

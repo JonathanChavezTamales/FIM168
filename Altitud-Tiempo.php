@@ -57,7 +57,7 @@ class RandomTable14{
         //creamos la conexión
         $conexion = $this->conectarBD();
         //Escribimos la sentencia sql necesaria respetando los tipos de datos
-        $sql = "insert into datos (Altitud) 
+        $sql = "insert into datos (AltPress) 
         values (".$ran.")";
         //hacemos la consulta y la comprobamos 
         $consulta = mysqli_query($conexion,$sql);
@@ -71,7 +71,7 @@ class RandomTable14{
     }
     function getAllInfo(){
         //Creamos la consulta
-        $sql = "SELECT ID,Altitud,HoraEvent FROM datos;";
+        $sql = "SELECT ID,AltPress,HoraEvent FROM datos;";
         //obtenemos el array con toda la información
         return $this->getArraySQL($sql);
     }

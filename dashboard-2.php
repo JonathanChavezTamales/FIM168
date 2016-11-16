@@ -24,8 +24,7 @@
     <script src="assets/js/flicker1.js"></script>
     <script src="assets/js/flicker2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="shortcut icon" href="/uu.ico" />
-	<style type="text/css">
+    <link rel="shortcut icon" href="logo.png" />	<style type="text/css">
 .blink_text {
 
 animation:3s blinker linear infinite;
@@ -138,12 +137,12 @@ animation:3s blinker linear infinite;
 						</a>
 						<ul>
 							<li>
-								<a href="dashboard-4.html">
+								<a href="dashboard-4.php">
 									<span class="title">Consulta de registros</span>
 								</a>
 							</li>
 							<li>
-								<a href="dashboard-5.html">
+								<a href="dashboard-5.php">
 									<span class="title">Registros históricos</span>
 								</a>
 							</li>

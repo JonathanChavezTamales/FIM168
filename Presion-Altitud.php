@@ -71,7 +71,7 @@ class RandomTable13{
     }
     function getAllInfo(){
         //Creamos la consulta
-        $sql = "SELECT ID, Presion, Altitud FROM datos;";
+        $sql = "SELECT ID, Presion, AltPress FROM datos;";
         //obtenemos el array con toda la información
         return $this->getArraySQL($sql);
     }

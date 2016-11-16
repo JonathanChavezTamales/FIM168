@@ -138,12 +138,12 @@ animation:3s blinker linear infinite;
 						</a>
 						<ul>
 							<li>
-								<a href="dashboard-4.html">
+								<a href="dashboard-4.php">
 									<span class="title">Consulta de registros</span>
 								</a>
 							</li>
 							<li>
-								<a href="dashboard-5.html">
+								<a href="dashboard-5.php">
 									<span class="title">Registros históricos</span>
 								</a>
 							</li>
@@ -234,7 +234,7 @@ $('#listado').load('Conexion.php');
 </script>
 
 
-<div id="listado">
+<CENTER><div id="listado">
 			
 			<?php
 		$link = mysqli_connect("localhost", "root", "");
@@ -243,20 +243,76 @@ $('#listado').load('Conexion.php');
 
 		mysqli_data_seek ($result, 0);
 		$extraido = mysqli_fetch_array($result);
-		echo "- ID: ".$extraido['ID']."<br/>";
-		echo "- Hora".extraido['HoraEvent']."<br/>";
-		echo "- Temperatura: ".$extraido['Temp_1']."<br/>";
-		echo "- Humedad: ".$extraido['Humedad']."<br/>";
-		echo "- Presion: ".$extraido['Presion']."<br/>";
+		echo "VARIABLE QUE LLEGAN DEL SATELLITE </br>";
+		echo "- Numero de dato: ".$extraido['ID']."<br/>";
+		echo "- Hora de llegada: ".$extraido['HoraEvent']."<br/>";
+		echo "- Temperatura externa: ".$extraido['Temp_1']." Grados Centigrados<br/>";
+		echo "- Temperatura interna: ".$extraido['Temp_2']." Grados Centigrados<br/>";
+		echo "- Humedad Relativa: ".$extraido['Humedad']."<br/>";
+		echo "- Presion: ".$extraido['Presion']." hPa<br/>";
 		echo "- Latitud: ".$extraido['Latitud']."<br/>";
 		echo "- Longitud: ".$extraido['Longitud']."<br/>";
-		echo "- Temperatura interna: ".$extraido['Temp_2']."<br/>";
-		echo "- Altitud en base a presion: ".$extraido['AltPress']."<br/>";
-		echo "- Altitud en base a GPS: ".$extraido['Altitud']."<br/>";
+		echo "- Altitud en base a presion: ".$extraido['AltPress']." Metros<br/>";
+		echo "- Altitud en base a GPS: ".$extraido['Altitud']." Metros<br/>";
+		echo "- mx: ".$extraido['mx']."<br/>";
+		echo "- my: ".$extraido['my']."<br/>";
+		echo "- mz: ".$extraido['mz']."<br/>";
+		echo "- ax: ".$extraido['ax']."<br/>";
+		echo "- ay: ".$extraido['ay']."<br/>";
+		echo "- az: ".$extraido['az']."<br/>";
+		echo "- gx: ".$extraido['gx']."<br/>";
+		echo "- gy: ".$extraido['gy']."<br/>";
+		echo "- gz: ".$extraido['gz']."<br/>";
+
+		$masa = 236;
+		$gravedad = 9.8;
+		$acel = 5;
+
+		$diff = time() - strtotime($extraido['HoraEvent']);
+
+		//Procesos formula uno velocidad
+         $resta = $extraido['Altitud']-$extraido['Presion'];
+         $Velocidad = $resta / $diff;
+         //Procesos formula dos velocidad
+         $multi = $masa*$acel;
+         $Velocidad_2 = $multi/$gravedad;
+
+
+         //Velocidad de desplazamiento
+         $x = 21.854635;
+         $y = -102.290048;
+         $factor1 = $extraido['Latitud'] - $x;
+         $al21 = pow($factor1,2);
+         $factor2 = $extraido['Longitud'] - $y;
+         $al22 = pow($factor2,2);
+         $sumd = $al21 + $al22;
+         $distancia = sqrt($sumd);
+         $velDist = $distancia/$diff;
+
+         //Temperaturas
+         $fext = $extraido['Temp_1'] * 1.8 + 32;
+         $fint = $extraido['Temp_2'] * 1.8 + 32;
+         $kext = $extraido['Temp_1'] + 273.15;
+         $kint = $extraido['Temp_2'] + 273.15;
+
+        echo "</br>"; 
+        echo "VELOCIADES </br>";
+        echo "- Velocidad ascenso/ decenso por formula uno: ".$Velocidad. " m/s</br>";
+        echo "- Velocidad ascenso/ decenso por formula dos: ".$Velocidad_2. " m/s</br>";
+        echo "- Velocidad de desplazamiento: ".$velDist. " m/s</br>";
+        echo "</br>";
+        echo "TEMPERATURAS EN DISTINTAS UNIDADES DE MEDIDA</br>";
+        echo "Temperatura interna en Fahrenheit: ".$fint. " F </br>";
+        echo "Temperatura interna en Kelvin: ".$kint. " K </br>";
+        echo "Temperatura externa en Fahrenheit: ".$fext. " F </br>";
+        echo "Temperatura externa en Kelvin: ".$kext. " K </br>";
+
+
+
 		mysqli_free_result($result);
 		mysqli_close($link);
 		?>
-</div>
+</div></CENTER>
 
 
 	<!-- Bottom Scripts -->
